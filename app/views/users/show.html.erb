@@ -46,7 +46,7 @@
       </div>
 <% end %>
       <%= render 'pie_graph', monthly_view: @monthly_view %>
-
+<% if false %>
       <table class="table table-sm">
         <thead class="thead-light">
           <tr>
@@ -67,8 +67,6 @@
           <% else %>
             <td><%= fixed_cost.categories.map(&:cat_name).first %></td>
           <% end %>
-
-<!-- リファクタリング -->
           <% if @monthly_view == "true" %>
             <td><%= I18n.t('views.words.monthly') %></td>
             <td><%= fixed_cost.payment.to_s(:delimited) %>円</td>
@@ -76,15 +74,14 @@
             <td><%= I18n.t('views.words.annual') %></td>
             <td><%= annual_payment(fixed_cost).to_s(:delimited) %>円</td>
           <% end %>
-
           <td><%= fixed_cost.content %></td>
   <% if fixed_cost.user == current_user %>
             <td><%= link_to edit_fixed_cost_path(fixed_cost.id), class: 'btn btn-primary btn-sm' do %>
               <i class="fas fa-edit"></i>
             <% end %></td>
-            <% if false%>
+<% if false%>
             <td><%#= link_to fixed_cost_path(fixed_cost.id), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "削除していいですか？"} do %>
-  <% end %>
+<% end %>
             <td><%= link_to fixed_cost_path(fixed_cost.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm delete', data: { confirm: "削除していいですか？"} do %>
 
               <i class="far fa-trash-alt"></i>
@@ -97,6 +94,9 @@
         </tbody>
         <% end %>
       </table>
+<% end %>
+      <%= render 'view_costs', { fixed_costs: @fixed_costs } %>
+      <%= paginate @fixed_costs, theme: 'twitter-bootstrap-4' %>
 
       <hr>
       <span class="text-danger">

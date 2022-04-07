@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    @fixed_costs = user.fixed_costs
+    @fixed_costs = user.fixed_costs.page(params[:page]).per(20)
 
     @comments = @user.comments.desc_sort
     @comment = @user.comments.build
