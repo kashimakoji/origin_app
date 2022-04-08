@@ -1,15 +1,3 @@
-<% if false%>
-<div id="view_costs">
-  <% if @monthly_view == "true" %>
-    <td><%= I18n.t('views.words.monthly') %></td>
-    <td><%= fixed_cost.payment.to_s(:delimited) %>円</td>
-  <% else @monthly_view == "false" %>
-    <td><%= I18n.t('views.words.annual') %></td>
-    <td><%= annual_payment(fixed_cost).to_s(:delimited) %>円</td>
-  <% end %>
-</div>
-<% end %>
-
 <div id="view_costs">
   <table class="table table-sm">
     <thead class="thead-light">
@@ -39,14 +27,12 @@
     <% end %>
 
     <td><%= fixed_cost.content %></td>
-  <% if fixed_cost.user == current_user %>
+    <% if fixed_cost.user == current_user %>
       <td><%= link_to edit_fixed_cost_path(fixed_cost.id), class: 'btn btn-primary btn-sm' do %>
         <i class="fas fa-edit"></i>
       <% end %></td>
-<% if false%>
-    <td><%#= link_to fixed_cost_path(fixed_cost.id), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "削除していいですか？"} do %>
-<% end %>
-      <td><%= link_to fixed_cost_path(fixed_cost.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm delete', data: { confirm: "削除していいですか？"} do %>
+
+      <td><%= link_to fixed_cost_path(fixed_cost.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm delete', data: { confirm: "削除していいですか？" } do %>
         <i class="far fa-trash-alt"></i>
       <% end %></td>
     <% else %>

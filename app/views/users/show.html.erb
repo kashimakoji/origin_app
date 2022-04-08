@@ -82,7 +82,7 @@
 <% if false%>
             <td><%#= link_to fixed_cost_path(fixed_cost.id), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: "削除していいですか？"} do %>
 <% end %>
-            <td><%= link_to fixed_cost_path(fixed_cost.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm delete', data: { confirm: "削除していいですか？"} do %>
+            <td><%= link_to fixed_cost_path(fixed_cost.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm delete', data: { confirm: "削除していいですか？" } do %>
 
               <i class="far fa-trash-alt"></i>
             <% end %></td>
@@ -95,7 +95,7 @@
         <% end %>
       </table>
 <% end %>
-      <%= render 'view_costs', { fixed_costs: @fixed_costs } %>
+      <%= render 'view_costs', { fixed_costs: @fixed_costs, monthly_view: @monthly_view } %>
       <%= paginate @fixed_costs, theme: 'twitter-bootstrap-4' %>
 
       <hr>

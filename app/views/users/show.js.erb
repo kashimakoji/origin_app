@@ -2,4 +2,4 @@ $("#change_view").html("<%= j(render partial: 'view_btn', locals: { monthly_view
 
 $("#pie_graph").html("<%= escape_javascript(render partial: 'pie_graph', locals: { monthly_view: @monthly_view } )  %>");
 
-$("#view_costs").html("<%= escape_javascript(render partial: 'view_costs', locals: { fixed_costs: @fixed_costs} )  %>");
+$("#view_costs").html("<%= escape_javascript(render partial: 'view_costs', locals: { fixed_costs: @fixed_costs, monthly_view: @monthly_view } )  %>");
