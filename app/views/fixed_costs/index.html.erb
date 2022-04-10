@@ -25,7 +25,7 @@
           <% num = 0 %>
           <% @user_total_cost.each do |uid, value| %>
             <tr>
-              <% if value > 30000 %>
+              <% if value >= 30000 %>
                 <td>第<%= num += 1 %>位</td>
                 <td class="pl-3"><%= link_to "#{User.find(uid).name}", user_path(uid) %></td>
                 <td><%= value.to_s(:delimited) %>円</td>

@@ -25,11 +25,30 @@ $(function(){
   $('.alert, .notice').fadeOut(8000);
 });
 
+// function bindElements() {
+// document.querySelectorAll('.delete').forEach(function(a) {
+//   var deferred = new $.Deferred
+//   debugger
+//   a.addEventListener('ajax:success', function() {
+//     debugger
+//     var td = a.parentNode;
+//     var tr = td.parentNode;
+//     console.log('削除')
+//     tr.style.display = 'none';
+//     return deferred;
+//   });
+// }
+
+
 document.addEventListener('turbolinks:load', function() {
+  // debugger
   document.querySelectorAll('.delete').forEach(function(a) {
+    // debugger
     a.addEventListener('ajax:success', function() {
+      // debugger
       var td = a.parentNode;
       var tr = td.parentNode;
+      console.log('削除')
       tr.style.display = 'none';
     });
   });
