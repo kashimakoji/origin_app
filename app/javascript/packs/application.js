@@ -40,16 +40,16 @@ $(function(){
 // }
 
 
-document.addEventListener('turbolinks:load', function() {
-  // debugger
-  document.querySelectorAll('.delete').forEach(function(a) {
-    // debugger
-    a.addEventListener('ajax:success', function() {
-      // debugger
-      var td = a.parentNode;
-      var tr = td.parentNode;
-      console.log('削除')
-      tr.style.display = 'none';
+$(document).on('click', '.delete', function(){
+  document.addEventListener('turbolinks:load', function() {
+    document.querySelectorAll('.delete').forEach(function(a) {
+      a.addEventListener('ajax:success', function() {
+        var td = a.parentNode;
+        var tr = td.parentNode;
+        console.log('削除')
+        tr.style.display = 'none';
+        window.location.reload();
+      });
     });
   });
 });

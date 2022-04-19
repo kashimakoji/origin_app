@@ -10,7 +10,7 @@
         <th></th>
       </tr>
     </thead>
-  <% fixed_costs.includes(:categories).each do |fixed_cost| %>
+  <% fixed_costs.includes(:categories).desc_sort.each do |fixed_cost| %>
   <tbody class="fixed_cost">
     <tr>
     <% unless fixed_cost.categories.present? %>

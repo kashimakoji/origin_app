@@ -6,13 +6,13 @@
           <div class="comment-content d-flex justify-content-between" id ="this_comment_<%= comment.id %>"></div>
           <div class="d-flex justify-content-between text-muted">
             <%= User.find(comment.send_user).name %>さんの投稿
+            <% if current_user.id == comment.send_user %>
+              <%= link_to user_comment_path(comment.user_id, comment.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"}  do %>
+                <i class="fa fa-trash" style="color: red;"></i>
+              <% end %>
+            <% end %>
             <small>投稿日：<%= l comment.created_at, format: :long %></small>
           </div>
-          <% if current_user.id == comment.send_user %>
-            <%= link_to user_comment_path(comment.user_id, comment.id), class: 'btn btn-outline-danger btn-sm', method: :delete, remote: true, data: { confirm: "本当に削除しますか?"}  do %>
-              <i class="fa fa-trash" style="color: red;"></i>
-            <% end %>
-          <% end %>
         </div>
         <div class="card-body">
           <% if comment.id.present? %>

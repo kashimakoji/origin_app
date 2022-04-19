@@ -55,7 +55,7 @@
             </h6>
           </div>
           <div class="card-footer bg-transparent d-flex justify-content-between">
-            <small class="pt-1"><%= l user.updated_at, format: :mid %></small>
+            <small class="pt-1 text-muted">投稿日:<%= l user.updated_at, format: :mid %></small>
             <%= render 'relationships/follow_form', user: user if current_user != user %>
           </div>
         </div>
