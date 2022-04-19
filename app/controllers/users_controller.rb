@@ -8,16 +8,16 @@ class UsersController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    @fixed_costs = user.fixed_costs
+    @fixed_costs = user.fixed_costs.page(params[:page]).per(20)
 
     @comments = @user.comments.desc_sort
     @comment = @user.comments.build
 
     params[:monthly_view].nil? ? @monthly_view = "true" : @monthly_view = params[:monthly_view]
 
-    #viewから受け取ったパラメーターを年額表示にする
+    #カテゴリーごとにまとめた月額金額を合計する
     @join_monthlies_cost = @fixed_costs.joins(:categories).where(monthly_annual: 1).or(@fixed_costs.joins(:categories).where(monthly_annual: 0)).group("categories.cat_name").sum(:payment)
-
+    #カテゴリーごとにまとめた年額金額を合計する
     @join_annuals_cost = @fixed_costs.joins(:categories).where(monthly_annual: 1).or(@fixed_costs.joins(:categories).where(monthly_annual: 0)).group("categories.cat_name").sum(:payment)
     @join_annuals_cost.each { |key, value| @join_annuals_cost[key] = value * 12 }
   end

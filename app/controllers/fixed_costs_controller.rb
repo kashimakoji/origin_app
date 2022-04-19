@@ -48,13 +48,12 @@ class FixedCostsController < ApplicationController
 
   def destroy
     if @fixed_cost.destroy
-      redirect_to user_path(current_user), notice: "削除しました"
+       redirect_to user_path(current_user), notice: "削除しました"
     else
       flash.now[:danger] = '削除に失敗しました'
       redirect_to user_path(current_user)
     end
   end
-
 
   private
   def fixed_cost_params

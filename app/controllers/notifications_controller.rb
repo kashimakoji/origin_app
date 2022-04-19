@@ -7,7 +7,7 @@ class NotificationsController < ApplicationController
     @notifications.where(checked: false).each do |notification|
       notification.update(checked: true)
     end
-    # 自分がコメントした人の固定支出のIDを取ってくる
+    # 自分がコメントした人の固定支出(users/show)のIDを取ってくる
     comment_ids = Notification.where(visitor_id: current_user.id).pluck(:user_id)
     @notifications = @notifications.user_seach(@notifications, current_user, comment_ids).page(params[:page]).per(10) #リファクタ
   end

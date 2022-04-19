@@ -1,0 +1,5 @@
+$("#change_view").html("<%= j(render partial: 'view_btn', locals: { monthly_view: @monthly_view } ) %>");
+
+$("#pie_graph").html("<%= j(render partial: 'pie_graph', locals: { monthly_view: @monthly_view } )  %>");
+
+$("#view_costs").html("<%= j(render partial: 'view_costs', locals: { fixed_costs: @fixed_costs, monthly_view: @monthly_view } ) %>");

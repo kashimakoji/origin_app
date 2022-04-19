@@ -15,19 +15,13 @@
       <%= image_tag current_user.image.url, class: "rounded-circle", size: "50x50" if current_user.image && current_user.image.url || current_user.image.present? %>
     </div>
 
-    <div class="col-10 mx-0">
+    <div class="col-9 mx-0">
       <div class="field">
         <%= form.text_area :content, class: 'form-control', placeholder: "コメントする" %>
+
       </div>
     </div>
-<% if false %>
-    <div class="col-1 align-self-center p-0">
-      <div class="actions">
-        <%= form.submit '送信', class: "btn btn-primary btn-sm" %>
-      </div>
-    </div>
-<% end %>
-    <div class="col-1 align-self-center p-0">
+    <div class="col-2 align-self-center p-1">
         <%= button_tag type: "submit", class: "btn btn-primary " do %>
           <i class="fa fa-paper-plane "></i>
         <% end %>

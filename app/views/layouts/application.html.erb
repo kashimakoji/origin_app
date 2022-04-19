@@ -15,7 +15,6 @@
     <header class="sticky-top">
       <nav class="navbar navbar-inverse navbar-expand-md navbar-light bg-light ">
         <%= link_to "みんなの家計簿投稿", root_path, id: "logo", class: "font-weight-bold" %>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDrop" aria-controls="navbarDrop" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,7 +36,7 @@
               <li class="nav-item ml-3">
                 <%= link_to I18n.t('views.messages.logout'), destroy_user_session_path, method: :delete, class: "text-secondary" %>
               </li>
-              <li class="nav-item ml-3" id="id_admin">
+              <li class="nav-item ml-1" id="id_admin">
                 <%= link_to "管理者画面", rails_admin_path if current_user.admin? %>
               </li>
             <% else %>
@@ -64,7 +63,6 @@
       </div>
 
       <%= yield %>
-
     </main>
     <footer class="footer bg-light">
       <p class="text-dark text-center text-secondary text-muted">©2022 Frugality</p>
@@ -79,8 +77,5 @@
       <!-- BootstrapのJavascript読み込み -->
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     </code>
-
-
-
   </body>
 </html>
