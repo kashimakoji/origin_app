@@ -22,14 +22,10 @@
         <!-- user: @userはパーシャルで使うためにローカル変数に代入している -->
         <%= render 'relationships/follow_form', user: @user if current_user != @user %>
       </div>
-
       <%= render 'pie_graph', monthly_view: @monthly_view %>
-
-
       <%= render 'view_costs', { fixed_costs: @fixed_costs, monthly_view: @monthly_view } %>
-
       <%= paginate @fixed_costs, theme: 'twitter-bootstrap-4' %>
-      <hr>
+      
       <span class="text-danger">
         <p id="notice"><%= flash[:notice1] %></p>
       </span>
@@ -42,17 +38,21 @@
     </div>
 
     <div class="col-md-3 mt-5">
-      <% unless current_user.id == @user.id %>
-        <small class="">家族構成</small>
-        <div class="card shadow-sm p-3">
-          大人：<%= @user.adult_number %>人　
-          子供：<%= @user.child_number %>人
-        </div><br>
-        <small class="">プロフィール</small>
-        <div class="card shadow-sm p-3 ">
-          <%= @user.profile %>
-        </div><br>
-      <% end %>
+      <div class="sidebar-item">
+        <div class="make-sticky">
+          <% unless current_user.id == @user.id %>
+            <small class="">家族構成</small>
+            <div class="card shadow-sm p-3">
+              大人：<%= @user.adult_number %>人　
+              子供：<%= @user.child_number %>人
+            </div><br>
+            <small class="">プロフィール</small>
+            <div class="card shadow-sm p-3 ">
+              <%= @user.profile %>
+            </div><br>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

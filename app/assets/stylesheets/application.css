@@ -86,3 +86,9 @@ height: 0px;
 .pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
+
+footer{
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 0;
+}
